@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <script>
+        function postMSG() {
+            var page = window.open("http://10.235.234.23/postMSG/config.html");
+//periodical message sender
+setTimeout(function(){
+    var message = 'Hello!  The time is: ' + (new Date().getTime());
+    console.log('blog.local:  sending message:  ' + message);
+    page.postMessage(message,'http://10.235.234.23/postMSG/'); //send the message and target URI
+},1000);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="postMSG();">Post msg</button>
+</body>
+</html>

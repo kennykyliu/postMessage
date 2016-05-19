@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+        function receiveMessage(event){
+            alert("abc");
+            var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+            alert(origin);
+            if (origin !== "http://10.235.234.23") {
+                return;
+            }
+            alert(event.data);
+
+        } 
+        window.addEventListener("message", receiveMessage, false);
+    </script>
+</body>
+</html>
